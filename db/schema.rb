@@ -10,24 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406035441) do
+ActiveRecord::Schema.define(version: 20170408203754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "application_fees", force: :cascade do |t|
+    t.string "price"
+  end
+
+  create_table "application_websites", force: :cascade do |t|
+    t.string "website"
+  end
+
+  create_table "boat_ramps", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "managing_agencies", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "permit_costs", force: :cascade do |t|
+    t.string "price"
+  end
+
   create_table "rivers", force: :cascade do |t|
     t.string  "name"
-    t.string  "put_in"
-    t.string  "take_out"
     t.integer "length"
-    t.string  "managing_agency"
-    t.string  "permit_type"
-    t.integer "application_fee"
-    t.integer "permit_cost"
     t.date    "deadline"
     t.date    "drawing"
-    t.string  "application_website"
     t.integer "state_id"
+    t.string  "take_out"
+    t.string  "put_in"
     t.index ["state_id"], name: "index_rivers_on_state_id", using: :btree
   end
 
