@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408203754) do
+ActiveRecord::Schema.define(version: 20170408212255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20170408203754) do
     t.string "price"
   end
 
+  create_table "permit_types", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "rivers", force: :cascade do |t|
     t.string  "name"
     t.integer "length"
@@ -43,6 +47,16 @@ ActiveRecord::Schema.define(version: 20170408203754) do
     t.integer "state_id"
     t.string  "take_out"
     t.string  "put_in"
+    t.integer "managing_agency_id"
+    t.integer "application_fee_id"
+    t.integer "permit_cost_id"
+    t.integer "application_website_id"
+    t.integer "permit_type_id"
+    t.index ["application_fee_id"], name: "index_rivers_on_application_fee_id", using: :btree
+    t.index ["application_website_id"], name: "index_rivers_on_application_website_id", using: :btree
+    t.index ["managing_agency_id"], name: "index_rivers_on_managing_agency_id", using: :btree
+    t.index ["permit_cost_id"], name: "index_rivers_on_permit_cost_id", using: :btree
+    t.index ["permit_type_id"], name: "index_rivers_on_permit_type_id", using: :btree
     t.index ["state_id"], name: "index_rivers_on_state_id", using: :btree
   end
 
@@ -50,5 +64,10 @@ ActiveRecord::Schema.define(version: 20170408203754) do
     t.string "name"
   end
 
+  add_foreign_key "rivers", "application_fees"
+  add_foreign_key "rivers", "application_websites"
+  add_foreign_key "rivers", "managing_agencies"
+  add_foreign_key "rivers", "permit_costs"
+  add_foreign_key "rivers", "permit_types"
   add_foreign_key "rivers", "states"
 end
