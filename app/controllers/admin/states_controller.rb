@@ -18,6 +18,13 @@ class Admin::StatesController < Admin::BaseController
     @states = State.all
   end
 
+  def show
+    @state = State.find(params[:id])
+  end
+
+  def destroy
+  end
+
 private
 
   def state_params

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 #
   namespace :admin do
     resources :states
-#     resources :rivers
+    resources :rivers, only: [:show]
   end
 end

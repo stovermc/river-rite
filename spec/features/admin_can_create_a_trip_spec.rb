@@ -11,6 +11,7 @@ RSpec.feature 'Admin can create a new state' do
 
         click_on "Add State"
 
+        # expect(flash[:danger]).to match "State successfully deleted."
         expect(current_path).to eq admin_states_path
         expect(page).to have_content "Colorado"
 

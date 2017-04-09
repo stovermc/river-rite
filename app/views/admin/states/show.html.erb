@@ -1,0 +1,12 @@
+<h1><%= @state.name %></h1>
+
+<div class="river-trips-container">
+  <% @state.rivers.each do |river| %>
+  <div class="river-trips">
+    <%= link_to river.name, admin_river_path(river) %>
+  </div>
+  <div class="btn">
+    <%= link_to "Delete", admin_state(@state), method: "delete" %>
+  </div>
+  <% end %>
+</div>
