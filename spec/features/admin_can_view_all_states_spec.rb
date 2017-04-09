@@ -20,6 +20,8 @@ RSpec.feature 'Admin can create a new state' do
             expect(page).to have_content("Utah")
         end
 
+        expect(page).to have_link("Add State", href: new_admin_state_path)
+
       end
     end
   end

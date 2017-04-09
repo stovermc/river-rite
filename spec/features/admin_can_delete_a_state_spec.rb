@@ -13,10 +13,9 @@ RSpec.feature 'Admin can delete a state' do
 
       click_on "Delete State"
 
-      # expect(flash[:danger]).to match "State successfully deleted."
-      expect(current_path).to eq adim_states_path
-      expect(page).to_no have_content("Colorado")
-
+      # expect(flash[:danger]).to match "#{state_2}successfully deleted."
+      expect(current_path).to eq admin_states_path
+      expect(page).to_not have_link("Utah", href: admin_state_path(state_2))
     end
   end
 end
