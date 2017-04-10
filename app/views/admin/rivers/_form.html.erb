@@ -1,0 +1,21 @@
+<%= form_for [:admin, @state, @river] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :put_in %>
+  <%= f.text_field :put_in %>
+  <%= f.label :take_out %>
+  <%= f.text_field :take_out %>
+  <%= f.label :application_fee %>
+  <%= f.text_field :application_fee %>
+  <%= f.label :permit_cost %>
+  <%= f.text_field :permit_cost %>
+  <%= f.label :permit_type %>
+  <%= f.text_field :permit_type %>
+  <%= f.label :length %>
+  <%= f.text_field :length %>
+  <%= f.label :managing_agency %>
+  <%= f.text_field :managing_agency %>
+  <%= f.label :application_website %>
+  <%= f.text_field :application_website %>
+  <%= f.submit %>
+<% end %>

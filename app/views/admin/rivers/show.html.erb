@@ -1,1 +1,19 @@
 <h1><%= @river.name %></h1>
+
+<ul>
+  <li>Put-In: <%= @river.put_in.name %></li>
+  <li>Take-Out: <%= @river.take_out.name %></li>
+  <li>Application Fee: <%= @river.application_fee.price %></li>
+  <li>Permit Cost: <%= @river.permit_cost.price %></li>
+  <li>Permit Type: <%= @river.permit_type.name %></li>
+  <li>Length: <%= @river.length %> Miles</li>
+  <li>Managing Agency: <%= @river.managing_agency.name%></li>
+  <li>Application Website: <%= @river.application_website.website%></li>
+</ul>
+
+<div class="btn">
+  <%= link_to "Edit", edit_admin_state_river_path(@river.state, @river) %>
+</div>
+<div class="btn">
+  <%= link_to "Delete", admin_state_river_path(@river.state, @river), method: "delete" %>  
+</div>
