@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 #   end
 #
   namespace :admin do
-    resources :states
-    resources :rivers, only: [:show]
+    resources :states do
+      resources :rivers
+    end
   end
+
+resources :users, only: [:new, :create, :show]
+
 end
